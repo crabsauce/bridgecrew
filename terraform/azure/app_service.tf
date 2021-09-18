@@ -82,4 +82,26 @@ resource azurerm_app_service "app-service3" {
     git_repo             = "terragoat"
     yor_trace            = "ec8295ab-af68-4cff-b0f1-b0cf5eaf1b75"
   }
+  site_config {
+    ftps_state = "Disabled"
+  }
+  auth_settings {
+    enabled = true
+  }
+  site_config {
+    dotnet_framework_version = "v5.0"
+  }
+  storage_account = {
+    type = "AzureFiles"
+  }
+  logs {
+    failed_request_tracing_enabled = true
+  }
+  logs {
+    detailed_error_messages_enabled = true
+  }
+  client_cert_enabled = true
+  site_config {
+    http2_enabled = true
+  }
 }
